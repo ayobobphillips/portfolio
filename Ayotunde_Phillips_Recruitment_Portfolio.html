@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayotunde Phillips — Talent Acquisition & HR Leadership</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1C2541;
+    --ink-soft:#33406B;
+    --paper:#EFEADF;
+    --paper-2:#E4DDCC;
+    --gold:#C68A2E;
+    --teal:#2F6659;
+    --cream-text:#F6F2E9;
+    --line: rgba(28,37,65,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    font-weight:500;
+  }
+  h1,h2,h3{ font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em;}
+
+  /* ---------- STITCH DIVIDER (signature element) ---------- */
+  .stitch{
+    width:100%;
+    height:14px;
+    background-image: repeating-linear-gradient(90deg, var(--gold) 0 10px, transparent 10px 20px);
+    background-size: 20px 2px;
+    background-position: center;
+    background-repeat: repeat-x;
+    opacity:0.9;
+  }
+  .stitch.dark{ background-image: repeating-linear-gradient(90deg, var(--gold) 0 8px, transparent 8px 16px); opacity:0.55;}
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    background:var(--ink);
+    color:var(--cream-text);
+    padding: 72px 8vw 56px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap;
+  }
+  .hero-top .eyebrow{ color:var(--gold); }
+  .hero-contact{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:rgba(246,242,233,0.72);
+    text-align:right;
+    line-height:1.8;
+  }
+  h1.name{
+    font-size: clamp(44px, 8vw, 92px);
+    line-height:0.98;
+    margin-top:26px;
+    color:var(--cream-text);
+  }
+  .credentials{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.08em;
+    color:var(--gold);
+    margin-top:14px;
+  }
+  .thesis{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size: clamp(19px, 2.4vw, 26px);
+    max-width:680px;
+    margin-top:28px;
+    color:rgba(246,242,233,0.92);
+    line-height:1.42;
+  }
+
+  .stat-ticker{
+    margin-top:52px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0;
+    border-top:1px solid rgba(246,242,233,0.18);
+  }
+  .stat-ticker .stat{
+    flex:1 1 160px;
+    padding:20px 22px 0 0;
+    border-right:1px solid rgba(246,242,233,0.18);
+  }
+  .stat-ticker .stat:last-child{ border-right:none; }
+  .stat .num{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:34px;
+    color:var(--cream-text);
+  }
+  .stat .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:rgba(246,242,233,0.6);
+    margin-top:6px;
+  }
+
+  /* ---------- IMPACT SECTION ---------- */
+  section.impact{
+    padding: 64px 8vw 56px;
+  }
+  .section-head{ display:flex; align-items:baseline; gap:16px; margin-bottom:36px; flex-wrap:wrap;}
+  .section-head .eyebrow{ color:var(--teal); }
+  .section-head h2{ font-size:clamp(28px,3.4vw,40px); }
+
+  .impact-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .impact-cell{
+    background:var(--paper);
+    padding:30px 26px;
+  }
+  .impact-cell .num{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:46px;
+    color:var(--ink);
+  }
+  .impact-cell .num span{ color:var(--gold); }
+  .impact-cell .desc{
+    margin-top:10px;
+    font-size:14px;
+    color:var(--ink-soft);
+    max-width:26ch;
+  }
+  .impact-cell .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--teal);
+    margin-top:14px;
+  }
+
+  /* ---------- TIMELINE ---------- */
+  section.timeline{
+    padding: 20px 8vw 40px;
+  }
+  .role{
+    border-top:1px solid var(--line);
+    padding:40px 0;
+    display:grid;
+    grid-template-columns: 200px 1fr;
+    gap:32px;
+  }
+  .role:last-child{ border-bottom:1px solid var(--line); }
+  .role-meta{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft); }
+  .role-meta .dates{ font-weight:600; color:var(--ink); }
+  .loc-row{ margin-top:10px; display:flex; flex-direction:column; gap:4px;}
+  .loc-tag{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:11px; letter-spacing:0.04em;
+  }
+  .loc-tag.remote::before{ content:"⟡"; color:var(--gold); }
+  .loc-tag.onsite::before{ content:"◈"; color:var(--teal); }
+
+  .role-body h3{ font-size:23px; color:var(--ink); }
+  .role-body .company{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--teal); margin-top:4px; letter-spacing:0.02em;}
+  .role-body ul{ margin-top:16px; padding-left:0; list-style:none; }
+  .role-body li{
+    position:relative; padding-left:20px; margin-top:11px; font-size:15px; color:var(--ink-soft); max-width:70ch;
+  }
+  .role-body li::before{
+    content:""; position:absolute; left:0; top:9px; width:7px; height:1.5px; background:var(--gold);
+  }
+
+  .bridge-note{
+    margin-top:18px;
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.03em;
+    color:var(--gold);
+    border:1px dashed var(--gold);
+    padding:6px 12px;
+    border-radius:2px;
+  }
+
+  /* ---------- SOURCING ---------- */
+  section.sourcing{
+    padding: 20px 8vw 64px;
+  }
+  .sourcing-intro{
+    font-size:15px;
+    color:var(--ink-soft);
+    max-width:56ch;
+    margin-top:-14px;
+    margin-bottom:32px;
+  }
+  .sourcing-stat{
+    display:flex;
+    align-items:baseline;
+    gap:20px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:22px 0;
+    margin-bottom:32px;
+  }
+  .sourcing-stat .num{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:44px;
+    color:var(--ink);
+    flex-shrink:0;
+  }
+  .sourcing-stat .num span{ color:var(--gold); }
+  .sourcing-stat .desc{
+    font-size:14px;
+    color:var(--ink-soft);
+    max-width:32ch;
+  }
+  @media (max-width:480px){
+    .sourcing-stat{ flex-direction:column; gap:8px; }
+  }
+  .channel-row{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:18px;
+  }
+  .channel-pill{
+    border:1px dashed var(--gold);
+    border-radius:2px;
+    padding:20px 18px;
+    background:var(--paper-2);
+  }
+  .channel-name{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:0.02em;
+    color:var(--ink);
+  }
+  .channel-use{
+    display:block;
+    margin-top:8px;
+    font-size:12.5px;
+    line-height:1.5;
+    color:var(--ink-soft);
+  }
+  @media (max-width:760px){
+    .channel-row{ grid-template-columns:1fr 1fr; }
+  }
+  @media (max-width:480px){
+    .channel-row{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- APPROACH ---------- */
+  section.approach{
+    background:var(--ink);
+    color:var(--cream-text);
+    padding:64px 8vw 72px;
+  }
+  section.approach .section-head .eyebrow{ color:var(--gold);}
+  section.approach h2{ color:var(--cream-text); }
+  .approach-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:28px;
+    margin-top:12px;
+  }
+  .approach-card{
+    border-top:2px solid var(--gold);
+    padding-top:16px;
+  }
+  .approach-card h4{
+    font-family:'Fraunces', serif; font-weight:600; font-size:18px; margin-bottom:10px;
+  }
+  .approach-card p{ font-size:13.5px; color:rgba(246,242,233,0.72); line-height:1.55;}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:48px 8vw 40px;
+    display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:20px;
+  }
+  footer .fname{ font-family:'Fraunces', serif; font-size:20px; font-weight:600; }
+  footer .fcontact{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft); line-height:1.9; text-align:right;}
+
+  @media (max-width:760px){
+    .role{ grid-template-columns:1fr; gap:14px; }
+    .impact-grid{ grid-template-columns:1fr 1fr; }
+    .approach-grid{ grid-template-columns:1fr 1fr; }
+    .stat-ticker .stat{ flex:1 1 45%; border-bottom:1px solid rgba(246,242,233,0.18); padding-bottom:16px;}
+    footer{ flex-direction:column; align-items:flex-start; }
+    footer .fcontact{ text-align:left; }
+  }
+  @media (max-width:480px){
+    .approach-grid{ grid-template-columns:1fr; }
+  }
+
+  @media print{
+    body{ background:white; }
+    .stitch{ opacity:0.6; }
+  }
+  .role{ page-break-inside: avoid; }
+  .impact-cell{ page-break-inside: avoid; }
+  .approach-card{ page-break-inside: avoid; }
+  .channel-pill{ page-break-inside: avoid; }
+  section.impact{ page-break-inside: avoid; }
+  header.hero{ page-break-after: avoid; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-top">
+    <div class="eyebrow">Talent Acquisition &amp; HR Leadership · Lagos, Nigeria</div>
+    <div class="hero-contact">
+      +234 813 020 0575<br>
+      +234 708 170 4580<br>
+      ayobobphillips@gmail.com
+    </div>
+  </div>
+  <h1 class="name">Ayotunde<br>Phillips</h1>
+  <div class="credentials">ACIPM &nbsp;·&nbsp; HRPL &nbsp;·&nbsp; CHRM</div>
+  <p class="thesis">I build the recruitment engines and people functions that let growing companies scale — across branches, across borders, without breaking stride.</p>
+
+  <div class="stat-ticker">
+    <div class="stat"><div class="num">750+</div><div class="label">Hires delivered</div></div>
+    <div class="stat"><div class="num">2</div><div class="label">Countries recruited for, remotely</div></div>
+    <div class="stat"><div class="num">10</div><div class="label">Branches staffed &amp; opened</div></div>
+    <div class="stat"><div class="num">50%</div><div class="label">Faster time-to-hire</div></div>
+  </div>
+</header>
+
+<div class="stitch"></div>
+
+<section class="impact">
+  <div class="section-head">
+    <span class="eyebrow">01 — By the numbers</span>
+    <h2>Recruitment, at scale</h2>
+  </div>
+  <div class="impact-grid">
+    <div class="impact-cell">
+      <div class="num"><span>120%</span></div>
+      <div class="desc">Nigeria workforce growth driven in 18 months</div>
+      <div class="tag">MOPO — Nigeria</div>
+    </div>
+    <div class="impact-cell">
+      <div class="num"><span>96%</span></div>
+      <div class="desc">DR Congo workforce growth in under 12 months, led remotely</div>
+      <div class="tag">MOPO — DR Congo</div>
+    </div>
+    <div class="impact-cell">
+      <div class="num"><span>50%</span></div>
+      <div class="desc">Cut from time-to-hire, with quality of hire improved alongside it</div>
+      <div class="tag">MOPO — Nigeria &amp; DRC</div>
+    </div>
+    <div class="impact-cell">
+      <div class="num"><span>250+</span></div>
+      <div class="desc">Professionals recruited for consulting clients across six sectors</div>
+      <div class="tag">BetaHR Consulting</div>
+    </div>
+    <div class="impact-cell">
+      <div class="num"><span>500+</span></div>
+      <div class="desc">Skilled and unskilled workers placed for multi-branch operations</div>
+      <div class="tag">BetaHR Consulting</div>
+    </div>
+    <div class="impact-cell">
+      <div class="num"><span>4</span></div>
+      <div class="desc">New branches fully staffed and mobilized within 20 months</div>
+      <div class="tag">Realtypros Investment</div>
+    </div>
+  </div>
+</section>
+
+<section class="timeline">
+  <div class="section-head">
+    <span class="eyebrow">02 — Track record</span>
+    <h2>Where the hiring happened</h2>
+  </div>
+
+  <div class="role">
+    <div class="role-meta">
+      <div class="dates">Feb 2024 — Present</div>
+      <div class="loc-row">
+        <span class="loc-tag remote">Remote, based in Lagos</span>
+        <span class="loc-tag remote">Covering Nigeria &amp; DR Congo</span>
+      </div>
+    </div>
+    <div class="role-body">
+      <h3>Human Resources Manager — Nigeria &amp; DR Congo</h3>
+      <div class="company">MOPO (Mobile Power)</div>
+      <ul>
+        <li>Run end-to-end recruitment, training and onboarding across two subsidiaries, cutting time-to-hire by 50% while improving quality of hire — coordinated remotely across two countries and time zones.</li>
+        <li>Direct the workforce planning and manpower-supply strategy behind a 120% headcount increase in Nigeria in 18 months, and a 96% increase in DR Congo in under 12 months.</li>
+        <li>Built the selection process, appraisal system and rewards framework a 5-person HR team uses to hire and retain talent in both subsidiaries.</li>
+        <li>Developed job structures and role definitions for every open position, standardizing how both country teams screen and select candidates.</li>
+        <li>Serve as Data Protection Officer over recruitment and employee data for both entities, keeping hiring compliant with NDPR, GDPR and local statutory bodies including NSITF, PENCOM, DGI and INPP.</li>
+      </ul>
+      <div class="bridge-note">Two subsidiaries, one remote hiring desk</div>
+    </div>
+  </div>
+
+  <div class="role">
+    <div class="role-meta">
+      <div class="dates">Dec 2022 — Present</div>
+      <div class="loc-row">
+        <span class="loc-tag remote">Remote, Lagos</span>
+      </div>
+    </div>
+    <div class="role-body">
+      <h3>Lead Resource Consultant</h3>
+      <div class="company">BetaHR Consulting</div>
+      <ul>
+        <li>Recruited 250+ professionals and 500+ skilled and unskilled workers for client organizations spanning FMCG, retail startups, e-commerce, marketing &amp; PR, academia and entertainment.</li>
+        <li>Advised clients end-to-end on recruitment, onboarding and workforce planning for multi-branch, multi-sector operations.</li>
+        <li>Ran HR diagnostics and gap analyses that became hiring and retention frameworks presented directly to executive leadership.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="role">
+    <div class="role-meta">
+      <div class="dates">Jun 2022 — Feb 2024</div>
+      <div class="loc-row">
+        <span class="loc-tag onsite">Lagos, Nigeria</span>
+        <span class="loc-tag onsite">6 branches, SW &amp; SS Nigeria</span>
+      </div>
+    </div>
+    <div class="role-body">
+      <h3>Head, Human Resources &amp; Administration</h3>
+      <div class="company">Realtypros Investment Global Limited</div>
+      <ul>
+        <li>Directed hiring cycles across six branches, standardizing recruitment procedures for consistent talent quality and cultural fit.</li>
+        <li>Mobilized the full workforce for 4 new branches within 20 months, alongside securing office space and finalizing lease documentation.</li>
+        <li>Led a 10-person team including all Branch Managers, and supervised a distributed Customer Service team of 8.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="role">
+    <div class="role-meta">
+      <div class="dates">Feb 2021 — May 2022</div>
+      <div class="loc-row">
+        <span class="loc-tag onsite">Lekki, Lagos</span>
+      </div>
+    </div>
+    <div class="role-body">
+      <h3>Human Resources Officer</h3>
+      <div class="company">WhiteGate Homes and Facilities Management Ltd</div>
+      <ul>
+        <li>Managed end-to-end recruitment and hiring, aligning talent acquisition with role requirements and company culture.</li>
+        <li>Built structured onboarding programs that accelerated new-hire integration and improved early-stage retention.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="role">
+    <div class="role-meta">
+      <div class="dates">Apr 2019 — Feb 2021</div>
+      <div class="loc-row">
+        <span class="loc-tag onsite">Nigeria</span>
+      </div>
+    </div>
+    <div class="role-body">
+      <h3>Administrative Officer</h3>
+      <div class="company">Solution World Center</div>
+      <ul>
+        <li>Coordinated onboarding for new staff and enforced SOPs with domestic staff — an early foundation in structured people operations.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sourcing">
+  <div class="section-head">
+    <span class="eyebrow">03 — Where the candidates come from</span>
+    <h2>Sourcing, channel by channel</h2>
+  </div>
+  <p class="sourcing-intro">Every search runs across multiple channels at once, matched to the role rather than defaulting to one board.</p>
+  <div class="sourcing-stat">
+    <div class="num"><span>85%</span></div>
+    <div class="desc">Candidate placement success rate across all sourcing channels</div>
+  </div>
+  <div class="channel-row">
+    <div class="channel-pill">
+      <span class="channel-name">LinkedIn</span>
+      <span class="channel-use">Professional &amp; executive roles, direct sourcing and outreach</span>
+    </div>
+    <div class="channel-pill">
+      <span class="channel-name">Indeed</span>
+      <span class="channel-use">High-volume and general applications, fast turnaround roles</span>
+    </div>
+    <div class="channel-pill">
+      <span class="channel-name">Sprout</span>
+      <span class="channel-use">Structured local sourcing across Nigerian talent pools</span>
+    </div>
+    <div class="channel-pill">
+      <span class="channel-name">FlexJobs</span>
+      <span class="channel-use">Remote and flexible-arrangement hires</span>
+    </div>
+  </div>
+</section>
+
+<div class="stitch dark"></div>
+
+<section class="approach">
+  <div class="section-head">
+    <span class="eyebrow">04 — How I hire</span>
+    <h2>The approach behind the numbers</h2>
+  </div>
+  <div class="approach-grid">
+    <div class="approach-card">
+      <h4>Structure first</h4>
+      <p>Every hiring cycle starts with a clear job structure and role definition, so growth doesn't outrun clarity.</p>
+    </div>
+    <div class="approach-card">
+      <h4>Planning tied to demand</h4>
+      <p>Manpower supply is planned against real business targets, not headcount for its own sake.</p>
+    </div>
+    <div class="approach-card">
+      <h4>Compliance built in</h4>
+      <p>Statutory and data-protection compliance is part of the hiring process, not a step bolted on after.</p>
+    </div>
+    <div class="approach-card">
+      <h4>Remote-first execution</h4>
+      <p>Hiring desks run across countries and time zones, proven across Nigeria and DR Congo at once.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fname">Ayotunde Adedolapo Phillips</div>
+  <div class="fcontact">
+    ayobobphillips@gmail.com<br>
+    +234 813 020 0575 &nbsp;/&nbsp; +234 708 170 4580<br>
+    Lagos, Nigeria
+  </div>
+</footer>
+
+</body>
+</html>
