@@ -204,6 +204,75 @@
     border-radius:2px;
   }
 
+  /* ---------- SOURCING ---------- */
+  section.sourcing{
+    padding: 20px 8vw 64px;
+  }
+  .sourcing-intro{
+    font-size:15px;
+    color:var(--ink-soft);
+    max-width:56ch;
+    margin-top:-14px;
+    margin-bottom:32px;
+  }
+  .sourcing-stat{
+    display:flex;
+    align-items:baseline;
+    gap:20px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:22px 0;
+    margin-bottom:32px;
+  }
+  .sourcing-stat .num{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:44px;
+    color:var(--ink);
+    flex-shrink:0;
+  }
+  .sourcing-stat .num span{ color:var(--gold); }
+  .sourcing-stat .desc{
+    font-size:14px;
+    color:var(--ink-soft);
+    max-width:32ch;
+  }
+  @media (max-width:480px){
+    .sourcing-stat{ flex-direction:column; gap:8px; }
+  }
+  .channel-row{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:18px;
+  }
+  .channel-pill{
+    border:1px dashed var(--gold);
+    border-radius:2px;
+    padding:20px 18px;
+    background:var(--paper-2);
+  }
+  .channel-name{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:0.02em;
+    color:var(--ink);
+  }
+  .channel-use{
+    display:block;
+    margin-top:8px;
+    font-size:12.5px;
+    line-height:1.5;
+    color:var(--ink-soft);
+  }
+  @media (max-width:760px){
+    .channel-row{ grid-template-columns:1fr 1fr; }
+  }
+  @media (max-width:480px){
+    .channel-row{ grid-template-columns:1fr; }
+  }
+
   /* ---------- APPROACH ---------- */
   section.approach{
     background:var(--ink);
@@ -251,6 +320,12 @@
     body{ background:white; }
     .stitch{ opacity:0.6; }
   }
+  .role{ page-break-inside: avoid; }
+  .impact-cell{ page-break-inside: avoid; }
+  .approach-card{ page-break-inside: avoid; }
+  .channel-pill{ page-break-inside: avoid; }
+  section.impact{ page-break-inside: avoid; }
+  header.hero{ page-break-after: avoid; }
 </style>
 </head>
 <body>
@@ -416,11 +491,41 @@
   </div>
 </section>
 
+<section class="sourcing">
+  <div class="section-head">
+    <span class="eyebrow">03 — Where the candidates come from</span>
+    <h2>Sourcing, channel by channel</h2>
+  </div>
+  <p class="sourcing-intro">Every search runs across multiple channels at once, matched to the role rather than defaulting to one board.</p>
+  <div class="sourcing-stat">
+    <div class="num"><span>85%</span></div>
+    <div class="desc">Candidate placement success rate across all sourcing channels</div>
+  </div>
+  <div class="channel-row">
+    <div class="channel-pill">
+      <span class="channel-name">LinkedIn</span>
+      <span class="channel-use">Professional &amp; executive roles, direct sourcing and outreach</span>
+    </div>
+    <div class="channel-pill">
+      <span class="channel-name">Indeed</span>
+      <span class="channel-use">High-volume and general applications, fast turnaround roles</span>
+    </div>
+    <div class="channel-pill">
+      <span class="channel-name">Sprout</span>
+      <span class="channel-use">Structured local sourcing across Nigerian talent pools</span>
+    </div>
+    <div class="channel-pill">
+      <span class="channel-name">FlexJobs</span>
+      <span class="channel-use">Remote and flexible-arrangement hires</span>
+    </div>
+  </div>
+</section>
+
 <div class="stitch dark"></div>
 
 <section class="approach">
   <div class="section-head">
-    <span class="eyebrow">03 — How I hire</span>
+    <span class="eyebrow">04 — How I hire</span>
     <h2>The approach behind the numbers</h2>
   </div>
   <div class="approach-grid">
