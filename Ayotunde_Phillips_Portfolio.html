@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ayotunde Phillips — HR Portfolio</title>
+<style>
+  :root{
+    --navy: #16213E;
+    --navy-2: #1D2C4F;
+    --cream: #EDE7DA;
+    --cream-2: #F6F3EC;
+    --gold: #C68A3E;
+    --ink: #17203B;
+    --muted-l: rgba(255,255,255,0.62);
+    --muted-d: #6B6455;
+    --rule-l: rgba(255,255,255,0.16);
+    --rule-d: rgba(23,32,59,0.14);
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{
+    font-family:'Liberation Sans','DejaVu Sans',sans-serif;
+    color:var(--ink);
+    background:#fff;
+    font-size:13.5px;
+    line-height:1.55;
+  }
+  .eyebrow{
+    font-family:'Liberation Mono','DejaVu Sans Mono',monospace;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:10px;
+  }
+  .serif{ font-family:'Lora', serif; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--navy);
+    color:#fff;
+    padding:46px 56px 0 56px;
+  }
+  .hero-top{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    padding-bottom:34px;
+  }
+  .hero-top .eyebrow{ color:var(--gold); }
+  .hero-contact{
+    font-family:'Liberation Mono','DejaVu Sans Mono',monospace;
+    font-size:10px; text-align:right; color:var(--muted-l);
+    line-height:1.7;
+  }
+  .hero-name{
+    font-family:'Lora', serif;
+    font-weight:700;
+    font-size:44px;
+    line-height:1.05;
+    padding-bottom:14px;
+  }
+  .hero-creds{
+    font-family:'Liberation Mono','DejaVu Sans Mono',monospace;
+    color:var(--gold);
+    font-size:11px;
+    letter-spacing:0.14em;
+    padding-bottom:22px;
+  }
+  .hero-tagline{
+    font-family:'Lora', serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:19px;
+    max-width:640px;
+    line-height:1.42;
+    padding-bottom:36px;
+  }
+  .stat-bar{
+    display:grid; grid-template-columns:1fr 1fr;
+    border-top:1px solid var(--rule-l);
+  }
+  .stat-bar > div{
+    padding:22px 26px;
+    border-right:1px solid var(--rule-l);
+    border-bottom:1px solid var(--rule-l);
+  }
+  .stat-bar > div:nth-child(2n){ border-right:none; }
+  .stat-num{ font-family:'Lora', serif; font-weight:700; font-size:30px; color:#fff; }
+  .stat-label{ font-size:10.5px; color:var(--muted-l); text-transform:uppercase; letter-spacing:0.06em; margin-top:3px; }
+
+  /* ---------- SECTION HEADER ---------- */
+  .section{ padding:38px 56px; }
+  .section.dark{ background:var(--navy); color:#fff; }
+  .section-head{
+    display:flex; align-items:baseline; gap:14px;
+    padding-bottom:18px; border-bottom:1px solid var(--rule-d);
+    margin-bottom:22px;
+  }
+  .section.dark .section-head{ border-bottom:1px solid var(--rule-l); }
+  .section-head .eyebrow{ color:var(--gold); white-space:nowrap; }
+  .section-head h2{ font-family:'Lora', serif; font-weight:700; font-size:22px; }
+
+  /* ---------- METRIC CARDS (cream) ---------- */
+  .metric-grid{
+    background:var(--cream);
+    border:1px solid var(--rule-d);
+  }
+  .metric{
+    padding:22px 28px;
+    border-bottom:1px solid var(--rule-d);
+  }
+  .metric:last-child{ border-bottom:none; }
+  .metric-num{ font-family:'Lora', serif; font-weight:700; font-size:30px; color:var(--gold); }
+  .metric-desc{ font-size:12.5px; margin-top:5px; max-width:70%; }
+  .metric-tag{ font-family:'Liberation Mono','DejaVu Sans Mono',monospace; font-size:9.5px; color:var(--muted-d); text-transform:uppercase; letter-spacing:0.06em; margin-top:6px; }
+
+  /* ---------- CAPABILITY LIST (light rows) ---------- */
+  .cap-row{
+    display:flex; gap:22px; padding:16px 0; border-bottom:1px solid var(--rule-d);
+  }
+  .cap-row:last-child{ border-bottom:none; }
+  .cap-title{ font-family:'Lora', serif; font-weight:700; font-size:14px; width:220px; flex:none; }
+  .cap-desc{ font-size:12.5px; color:#2b2b2b; }
+
+  /* ---------- TAG PILLS (systems/platforms) ---------- */
+  .tag-wrap{ display:flex; flex-wrap:wrap; gap:9px; margin-top:4px; }
+  .tag{
+    font-family:'Liberation Mono','DejaVu Sans Mono',monospace;
+    font-size:10px; letter-spacing:0.03em;
+    border:1px solid var(--rule-d);
+    padding:7px 12px;
+    color:var(--ink);
+    background:var(--cream-2);
+  }
+  .section.dark .tag{ border-color:var(--rule-l); background:var(--navy-2); color:#fff; }
+
+  /* ---------- SOURCING TABLE ---------- */
+  .source-grid{ background:var(--cream-2); border:1px solid var(--rule-d); }
+  .source-row{ padding:14px 24px; border-bottom:1px solid var(--rule-d); }
+  .source-row:last-child{ border-bottom:none; }
+  .source-name{ font-family:'Liberation Mono','DejaVu Sans Mono',monospace; font-size:11.5px; font-weight:bold; }
+  .source-desc{ font-size:12px; color:#3a3a3a; margin-top:2px; }
+
+  /* ---------- DARK PRINCIPLE ROWS ---------- */
+  .principle{ padding:16px 0; border-bottom:1px solid var(--rule-l); }
+  .principle:last-child{ border-bottom:none; }
+  .principle h3{ font-family:'Lora', serif; font-size:15px; font-weight:700; margin-bottom:4px; }
+  .principle p{ font-size:12.5px; color:var(--muted-l); }
+
+  /* ---------- FOOTER ---------- */
+  .footer{ padding:40px 56px 50px 56px; }
+  .footer h3{ font-family:'Lora', serif; font-size:19px; font-weight:700; margin-bottom:8px; }
+  .footer .eyebrow{ color:var(--muted-d); }
+  .footer-line{ font-size:12px; color:var(--ink); margin-top:2px; }
+
+  .avoid-break{ break-inside:avoid; }
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-top">
+      <div class="eyebrow">HR INFRASTRUCTURE, OPERATIONS &amp; TALENT LEADERSHIP · LAGOS, NIGERIA</div>
+      <div class="hero-contact">
+        +234 813 020 0575<br>
+        +234 708 170 4580<br>
+        ayobobphillips@gmail.com
+      </div>
+    </div>
+    <div class="hero-name">Ayotunde<br>Phillips</div>
+    <div class="hero-creds">ACIPM &nbsp;·&nbsp; HRPL &nbsp;·&nbsp; CHRM</div>
+    <div class="hero-tagline">I build the HR structures, systems and recruitment engines that let growing companies scale — across branches, across borders, without breaking stride.</div>
+    <div class="stat-bar">
+      <div><div class="stat-num">10</div><div class="stat-label">Branches &amp; subsidiaries built or staffed</div></div>
+      <div><div class="stat-num">2</div><div class="stat-label">Countries led as sole HR authority</div></div>
+      <div><div class="stat-num">750+</div><div class="stat-label">Hires delivered end‑to‑end</div></div>
+      <div><div class="stat-num">50%</div><div class="stat-label">Faster time‑to‑hire</div></div>
+    </div>
+  </div>
+
+  <!-- 01 — HR OPERATIONS & SYSTEMS BUILD -->
+  <div class="section">
+    <div class="section-head">
+      <div class="eyebrow">01 — HR OPERATIONS &amp; SYSTEMS BUILD</div>
+      <h2>Building the infrastructure, not just staffing it</h2>
+    </div>
+
+    <div class="metric-grid avoid-break">
+      <div class="metric">
+        <div class="metric-num">4</div>
+        <div class="metric-desc">New branches built end‑to‑end within 20 months — property, lease, workspace build‑out and workforce mobilization</div>
+        <div class="metric-tag">Realtypros Investment Global</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">15%</div>
+        <div class="metric-desc">Lift in work effectiveness from a bespoke KPI‑based performance tracking system, built from scratch</div>
+        <div class="metric-tag">MOPO — Nigeria &amp; DR Congo</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">40%</div>
+        <div class="metric-desc">Efficiency gain from a performance management system designed for a six‑branch sales team</div>
+        <div class="metric-tag">Realtypros Investment Global</div>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;">
+      <div class="cap-row">
+        <div class="cap-title">Internal control systems</div>
+        <div class="cap-desc">Designed the internal control system governing business operations across two subsidiaries, plus the underlying job structures and role definitions.</div>
+      </div>
+      <div class="cap-row">
+        <div class="cap-title">Selection &amp; rewards frameworks</div>
+        <div class="cap-desc">Built the selection process, appraisal system, rewards framework and employee development programmes from zero, aligned to business strategy.</div>
+      </div>
+      <div class="cap-row">
+        <div class="cap-title">Systems &amp; platforms</div>
+        <div class="cap-desc" style="margin-bottom:2px;">Hands‑on across HRIS and ERP tooling used to run the operations above:</div>
+        <div class="tag-wrap">
+          <div class="tag">Zoho People</div>
+          <div class="tag">Zoho CRM / Projects</div>
+          <div class="tag">Odoo HR</div>
+          <div class="tag">Odoo ERP</div>
+          <div class="tag">Connecteam HRIS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 — POLICY FORMULATION & GOVERNANCE -->
+  <div class="section dark">
+    <div class="section-head">
+      <div class="eyebrow">02 — POLICY FORMULATION &amp; GOVERNANCE</div>
+      <h2>Frameworks that hold up under scrutiny</h2>
+    </div>
+
+    <div class="principle avoid-break">
+      <h3>Client policy formulation</h3>
+      <p>Lead policy formulation engagements for BetaHR Consulting clients — building HR frameworks that strengthen organizational development and governance, from diagnostics through to intervention plans presented directly to executive leadership.</p>
+    </div>
+    <div class="principle avoid-break">
+      <h3>Data protection officer, two countries</h3>
+      <p>Served as DPO for MOPO across Nigeria and DR Congo, holding full NDPR and GDPR compliance alongside multi‑country statutory alignment — NSITF, PENCOM, NHF, ITF, DGI, INPS/CNAM, INPP, Inspection du Travail, DGM.</p>
+    </div>
+    <div class="principle avoid-break">
+      <h3>Retention &amp; succession governance</h3>
+      <p>Developed a structured retention and succession planning framework at Realtypros that supported smooth leadership transitions across a six‑branch business.</p>
+    </div>
+    <div class="principle avoid-break">
+      <h3>HR diagnostics &amp; gap analysis</h3>
+      <p>Conduct HR diagnostics and gap analyses for consulting clients across sectors, translating findings into intervention plans rather than generic recommendations.</p>
+    </div>
+  </div>
+
+  <!-- 03 — RECRUITMENT AT SCALE -->
+  <div class="section">
+    <div class="section-head">
+      <div class="eyebrow">03 — RECRUITMENT, AT SCALE</div>
+      <h2>The engine behind the headcount</h2>
+    </div>
+
+    <div class="metric-grid avoid-break">
+      <div class="metric">
+        <div class="metric-num">120%</div>
+        <div class="metric-desc">Nigeria workforce growth driven in 18 months</div>
+        <div class="metric-tag">MOPO — Nigeria</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">96%</div>
+        <div class="metric-desc">DR Congo workforce growth in under 12 months, led remotely</div>
+        <div class="metric-tag">MOPO — DR Congo</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">85%</div>
+        <div class="metric-desc">Candidate placement success rate across all sourcing channels</div>
+        <div class="metric-tag">Career‑wide</div>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;" class="source-grid avoid-break">
+      <div class="source-row"><div class="source-name">LinkedIn</div><div class="source-desc">Professional &amp; executive roles, direct sourcing and outreach</div></div>
+      <div class="source-row"><div class="source-name">Indeed</div><div class="source-desc">High‑volume and general applications, fast turnaround roles</div></div>
+      <div class="source-row"><div class="source-name">Sprout</div><div class="source-desc">Structured local sourcing across Nigerian talent pools</div></div>
+      <div class="source-row"><div class="source-name">FlexJobs</div><div class="source-desc">Remote and flexible‑arrangement hires</div></div>
+    </div>
+  </div>
+
+  <!-- 04 — HOW I WORK -->
+  <div class="section dark">
+    <div class="section-head">
+      <div class="eyebrow">04 — HOW I WORK</div>
+      <h2>The approach behind the numbers</h2>
+    </div>
+    <div class="principle"><h3>Structure first</h3><p>Every engagement starts with a clear job structure and role definition, so growth doesn't outrun clarity.</p></div>
+    <div class="principle"><h3>Systems before headcount</h3><p>HRIS and ERP platforms are configured and staff are trained before scaling begins, not bolted on once things get unwieldy.</p></div>
+    <div class="principle"><h3>Planning tied to demand</h3><p>Manpower supply and cost are planned against real business targets, not headcount for its own sake.</p></div>
+    <div class="principle"><h3>Compliance built in</h3><p>Statutory and data‑protection compliance is part of the process from day one, not a step bolted on after.</p></div>
+    <div class="principle"><h3>Remote‑first execution</h3><p>Hiring desks and HR operations run across countries and time zones — proven across Nigeria and DR Congo at once.</p></div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <h3>Ayotunde Adedolapo Phillips</h3>
+    <div class="footer-line">ayobobphillips@gmail.com</div>
+    <div class="footer-line">+234 813 020 0575 &nbsp;/&nbsp; +234 708 170 4580</div>
+    <div class="footer-line">Lagos, Nigeria</div>
+  </div>
+
+</body>
+</html>
